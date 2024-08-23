@@ -1,0 +1,94 @@
+<section class="bg-main-light shadow p-2 ">
+    <div class="container p-4">
+        <h1 class=" h3 text-main">Register Now :</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="registerSubmite()" class="mx-auto">
+            <div class="form-floating mt-2">
+                <input formControlName="name" type="text" id="name" class="form-control" placeholder="Name">
+                <label for="name">Name</label>
+                @if(registerForm.get("name")?.errors && registerForm.get("name")?.touched){
+                <div class="alert alert-danger p-2">
+                    @if (registerForm.get("name")?.getError("required")) {
+                    <p class="m-0">Name is required</p>
+                    }
+                    @else if (registerForm.get("name")?.getError("minlength")) {
+                    <p class="m-0">Name Should be more than or equal 3 chars</p>
+                    }
+                    @else if (registerForm.get("name")?.getError("maxlength")) {
+                    <p class="m-0">Name Should be less than or equal 20 chars</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="form-floating mt-2">
+                <input formControlName="email" type="email" id="email" class="form-control" placeholder="Email">
+                <label for="email">Email</label>
+                @if(registerForm.get("email")?.errors && registerForm.get("email")?.touched){
+                <div class="alert alert-danger p-2">
+                    @if (registerForm.get("email")?.getError("required")) {
+                    <p class="m-0 p-0">Email is required</p>
+                    }
+                    @else if (registerForm.get("email")?.getError("email")) {
+                    <p class="m-0">Enter Valid Email</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="form-floating mt-2">
+                <input formControlName="phone" type="tel" id="phone" class="form-control" placeholder="Phone">
+                <label for="phone">Phone</label>
+                @if(registerForm.get("phone")?.errors && registerForm.get("phone")?.touched){
+                <div class="alert alert-danger p-2">
+                    @if (registerForm.get("phone")?.getError("required")) {
+                    <p class="m-0 p-0">Phone is required</p>
+                    }
+                    @else if (registerForm.get("phone")?.getError("pattern")) {
+                    <p class="m-0">Accept only Egyptian phone numbers</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="form-floating mt-2">
+                <input formControlName="password" type="password" id="password" class="form-control"
+                    placeholder="Password">
+                <label for="password">Password</label>
+                @if(registerForm.get("password")?.errors && registerForm.get("password")?.touched){
+                <div class="alert alert-danger p-2">
+                    @if (registerForm.get("password")?.getError("required")) {
+                    <p class="m-0 p-0">Password is required</p>
+                    }
+                    @else if (registerForm.get("password")?.getError("pattern")) {
+                    <p class="m-0">Must be at least 6 chars</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="form-floating mt-2">
+                <input formControlName="rePassword" type="password" id="rePassword" class="form-control"
+                    placeholder="Repassword">
+                <label for="rePassword">Repassword</label>
+                @if(registerForm.getError("mismatch") && registerForm.get("rePassword")?.touched){
+                <div class="alert alert-danger p-2">
+                    <p class="m-0 p-0">Password confirmation is incorrect</p>
+                </div>
+                }
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit"
+                class="btn-main mt-3 ms-auto d-block">Register</button>
+            @if (errMes) {
+            <div class="alert alert-danger mt-2 p-0 ">
+                <p class="p-2 m-0">{{errMes}}</p>
+            </div>
+            }
+            @if (succMes) {
+                <div class="alert alert-success mt-2 p-0">
+                    <p class="p-2 m-0">succes</p>
+                </div>
+                }
+        </form>
+
+    </div>
+</section>

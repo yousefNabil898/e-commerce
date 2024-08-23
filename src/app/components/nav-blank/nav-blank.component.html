@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="home">
+            <img src="./assets/images/freshcart-logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link ps-1" routerLink="home" routerLinkActive="active-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ps-1" routerLink="proudect" routerLinkActive="active-link">proudect</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ps-1" routerLink="categories" routerLinkActive="active-link">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ps-1" routerLink="cart" routerLinkActive="active-link">cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ps-1" routerLink="brand" routerLinkActive="active-link">brand</a>
+                </li>
+
+
+            </ul>
+
+            <ul class="navbar-nav ms-auto  ">
+                <ul class="d-flex list-unstyled">
+                    <li class="nav-item me-1">
+                        <a class="nav-link ps-1 cr "><i class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link ps-1 cr"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+
+                    <li class="nav-item me-1">
+                        <a class="nav-link ps-1 cr"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link ps-1 cr"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link ps-1 cr" (click)="signOut()">sign out</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
