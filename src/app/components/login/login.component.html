@@ -17,7 +17,7 @@
                 }
             </div>
 
-       
+
 
             <div class="form-floating mt-2">
                 <input formControlName="password" type="password" id="password" class="form-control"
@@ -34,19 +34,22 @@
                 </div>
                 }
             </div>
+            <div class="d-flex justify-content-end align-items-center mt-3">
+                <a routerLink="/forget"  class="me-3 link-primary fw-bolder "> Forgetpassword</a>
 
-            <button [disabled]="loginForm.invalid" type="submit"
-                class="btn-main mt-3 ms-auto d-block">login-in</button>
+                <button [disabled]="loginForm.invalid" type="submit" class="btn-main">login</button>
+
+            </div>
             @if (errMes) {
             <div class="alert alert-danger mt-2 p-0 ">
                 <p class="p-2 m-0">{{errMes}}</p>
             </div>
             }
             @if (succMes) {
-                <div class="alert alert-success mt-2 p-0">
-                    <p class="p-2 m-0">succes</p>
-                </div>
-                }
+            <div class="alert alert-success mt-2 p-0">
+                <p class="p-2 m-0">succes</p>
+            </div>
+            }
         </form>
 
     </div>

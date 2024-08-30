@@ -1,0 +1,62 @@
+.card .btn-cart {
+    transform: translateY(120%);
+    transition-duration: .7s;
+}
+
+.card:hover .btn-cart {
+    transform: translateY(-10%);
+
+}
+.button {
+    height: 45px;
+    width: 200px;
+    background-color: var(--main-color);
+    border: 2px solid white;
+    color: #eee;
+    transition: .6s;
+    font-size: 15px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.button span {
+    transform: translateX(10px);
+    transition: .5s;
+}
+
+.button i {
+    transform: translateX(-300px);
+    transition: .6s;
+    z-index: 3;
+    font-size: 20px;
+}
+
+.button:hover {
+    width: 60px;
+    background-color: var(--main-color);
+    box-shadow: 20px 20px 96px #bebebe, -20px -20px 96px #ffffff;
+}
+
+.button:hover i {
+    transform: translateX(-5px);
+}
+
+.button:hover span {
+    transform: translateY(70px);
+    font-size: .1rem;
+}
+.fw-bolder-y{
+    font-weight: 900;
+}
+.f-family{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.text-danger-light:hover{
+    color: rgb(255, 0, 0);
+}
+.text-danger-light{
+    color: rgb(187, 27, 27);
+}

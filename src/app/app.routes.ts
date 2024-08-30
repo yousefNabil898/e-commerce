@@ -10,23 +10,27 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { CartComponent } from './components/cart/cart.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { authGuard } from './core/guards/auth.guard';
+import { DetailesComponent } from './components/detailes/detailes.component';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 
 export const routes: Routes = [
     {
         path: "", component: AuthLayoutComponent, children: [
             { path: "", redirectTo: "login", pathMatch: "full" },
             { path: "login", component: LoginComponent },
-            { path: "register", component: RegisterComponent }
+            { path: "register", component: RegisterComponent },
+            { path: "forget", component: ForgetpasswordComponent },
         ]
     },
     {
         path: "", component: BlankLayoutComponent,canActivate:[authGuard], children: [
             { path: "", redirectTo: "home", pathMatch: "full" },
-            { path: "home", component: HomeComponent },
-            { path: "proudect", component: ProudectComponent },
-            { path: "categories", component: CategoriesComponent },
-            { path: "cart", component: CartComponent },
-            { path: "brand", component: BrandsComponent },
+            { path: "home", component: HomeComponent,title:"home" },
+            { path: "proudect", component: ProudectComponent,title:"proudect" },
+            { path: "categories", component: CategoriesComponent,title:"categories" },
+            { path: "cart", component: CartComponent ,title:"cart"},
+            { path: "brand", component: BrandsComponent ,title:"brand"},
+            { path: "detailes/:id", component: DetailesComponent,title:"detailes" },
         ]
     },
     { path: "**", component: NotfoundComponent },

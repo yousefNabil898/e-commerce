@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import 'ngx-toastr/toastr';
+
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
 
 :root {
@@ -12,6 +16,7 @@
   --rating-color: #ffc908;
 }
 
+
 body {
   font-family: var(--font-family) !important;
 }
@@ -20,8 +25,8 @@ body {
   transition: unset !important;
 }
 .active-link {
-  background-color: var(--main-color) !important;
-  color: var(--light-color) !important;
+  color: var(--main-color) !important;
+  font-weight: 600;
   border-radius: 5px;
 }
 
