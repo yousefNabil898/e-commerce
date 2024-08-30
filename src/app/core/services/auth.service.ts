@@ -48,7 +48,7 @@ export class AuthService {
     return this._HttpClient.post(`${enviroment.baseUrl}/api/v1/auth/verifyResetCode`, data)
 
   }
-  setErestVerfiy(data: object): Observable<any>{
+restVerfiy(data: object): Observable<any>{
     return this._HttpClient.put(`${enviroment.baseUrl}/api/v1/auth/resetPassword`, data)
 
   }

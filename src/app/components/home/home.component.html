@@ -58,27 +58,12 @@
                 <div class="card shadow-sm cr overflow-hidden">
                     <div [routerLink]="['/detailes', product.id]">
                         <img [src]="product.imageCover" class="card-img-top w-100" [alt]="product.title">
-
-                        <!-- <owl-carousel-o [options]="customOptionsproduct">
-
-                            @for (img of product.images; track $index) {
-
-                            <ng-template carouselSlide>
-
-                                <img [src]="img" class="card-img-top w-100" [alt]="product.title">
-
-                            </ng-template>
-                            }
-
-                        </owl-carousel-o> -->
-
-
                         <div class="card-body p-2">
                             <p class=" text-main m-0 fs-small">{{product.category.name}}</p>
                             <h5 class=" h5 py-1  m-0 flex-wrap fw-bold">{{product.title.split(" ",2).join(" ")}}</h5>
                         </div>
                         <div class="p-2  d-flex justify-content-between ">
-                            <p class="m-0 fs-5 fw-bold">{{product.price}} <span class="text-muted fs-6">EGP</span></p>
+                            <p class="m-0 fs-5 fw-bold">{{product.price | currency: "EGP "}} </p>
                             <p class="m-0 text-muted">{{product.ratingsAverage}} <span> <i
                                         class="fas fa-star rating-color"></i></span></p>
                         </div>

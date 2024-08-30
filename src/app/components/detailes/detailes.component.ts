@@ -4,17 +4,24 @@ import { ProductsService } from '../../core/services/products.service';
 import { Iproduct } from '../../core/interfaces/iproduct';
 import { Subscription } from 'rxjs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/cart.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-detailes',
   standalone: true,
-  imports: [CarouselModule],
+  imports: [CarouselModule, CurrencyPipe],
   templateUrl: './detailes.component.html',
   styleUrls: ['./detailes.component.scss']
 })
 export class DetailesComponent implements OnInit, OnDestroy {
   private readonly _ActivatedRoute = inject(ActivatedRoute);
   private readonly _ProductsService = inject(ProductsService);
+  private readonly _ToastrService = inject(ToastrService)
+  private readonly _CartService = inject(CartService)
+
+
   detalisProductSub !: Subscription
   detailesProduct: Iproduct = {} as Iproduct;
   selectedImage: string = '';
@@ -62,9 +69,22 @@ export class DetailesComponent implements OnInit, OnDestroy {
 
 
 
+  addProductToCart(id: string) {
+    this._CartService.addProductCart(id).subscribe({
+      next: (res) => {
+        this._ToastrService.success(res.message, "Fresh Cart")
+      },
+      error: (err) => {
+        console.log(err);
 
-
+      }
+    })
+  }
 }
+
+
+
+
 
 
 

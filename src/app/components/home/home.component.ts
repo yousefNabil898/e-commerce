@@ -8,11 +8,12 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselModule, RouterLink,],
+  imports: [CarouselModule, RouterLink, CurrencyPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -114,7 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   addProductToCart(id: string) {
     this._CartService.addProductCart(id).subscribe({
       next: (res) => {
-this._ToastrService.success(res.message , "Fresh Cart")
+        this._ToastrService.success(res.message, "Fresh Cart")
       },
       error: (err) => {
         console.log(err);

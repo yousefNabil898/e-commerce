@@ -21,8 +21,7 @@
                     {{ detailesProduct.category.name }} > {{ detailesProduct.subcategory[0].name }}
                 </p>
                 <h4 class="text-success">
-                    {{ detailesProduct.price }}
-                    <span class="text-dark ms-2 fs-6">EGP</span>
+                    {{ detailesProduct.price | currency :"EGP  " }}
                 </h4>
                 <p>{{ detailesProduct.description }}</p>
                 <div class="mt-3">
@@ -41,7 +40,7 @@
                     <p><strong>Sold:</strong> {{ detailesProduct.sold }}</p>
                     <p><strong>Quantity Available:</strong> {{ detailesProduct.quantity }}</p>
                 </div>
-                <button class="btn-main mt-3">Add to Cart</button>
+                <button (click)="addProductToCart(detailesProduct.id)" class="btn-main mt-3">Add to Cart</button>
             </div>
 
             <div class="col-md-5 d-none d-md-block">

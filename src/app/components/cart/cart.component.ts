@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CartService } from '../../core/services/cart.service';
 import { Icart } from '../../core/interfaces/icart';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 })
 export class CartComponent implements OnInit {
     private readonly _CartService = inject(CartService)
+    private readonly _ToastrService = inject(ToastrService)
 
     cartItems: Icart = {} as Icart
     ngOnInit(): void {
@@ -34,6 +36,7 @@ export class CartComponent implements OnInit {
             next: (res) => {
                 console.log(res);
                 this.cartItems = res.data
+                this._ToastrService.error("Product Deleted", "Fresh cart")
 
 
             },
@@ -48,6 +51,8 @@ export class CartComponent implements OnInit {
             next: (res) => {
                 console.log(res);
                 this.cartItems = {} as Icart
+                this._ToastrService.error("All Products Deleted", "Fresh cart")
+
             },
             error: (err) => {
                 console.log(err);
@@ -60,7 +65,7 @@ export class CartComponent implements OnInit {
             next: (res) => {
                 console.log(res);
                 this.cartItems = res.data
-                
+
 
 
             },
