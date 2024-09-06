@@ -7,11 +7,12 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../core/services/cart.service';
 import { CurrencyPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detailes',
   standalone: true,
-  imports: [CarouselModule, CurrencyPipe],
+  imports: [CarouselModule, CurrencyPipe, TranslateModule],
   templateUrl: './detailes.component.html',
   styleUrls: ['./detailes.component.scss']
 })
@@ -27,6 +28,7 @@ export class DetailesComponent implements OnInit, OnDestroy {
   selectedImage: string = '';
   customOptionsDetailes: OwlOptions = {
     loop: true,
+    rtl: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,

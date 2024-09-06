@@ -1,3 +1,4 @@
  export const enviroment ={
-    baseUrl: "https://ecommerce.routemisr.com"
+    baseUrl: "https://ecommerce.routemisr.com",
+    urlServer: "http://localhost:60101/"
 }

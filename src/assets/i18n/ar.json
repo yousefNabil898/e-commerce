@@ -1,0 +1,37 @@
+{
+    "navbar": {
+        "Home": "الرئيسية",
+        "Products": "المنتجات",
+        "Categories": "الأقسام",
+        "Brand": "الماركات",
+        "lang": "اللغة",
+        "ar": "العربية",
+        "en": "الانجليزية",
+        "Sign Out": "تسجيل الخروج"
+    },
+    "Home": {
+        "main_categories": "الفئات الرئيسية",
+        "recommended_for_you": "موصى به لك",
+        "add_to_cart": "أضف إلى السلة",
+        "brand": "العلامة التجارية",
+        "average_rating": "متوسط التقييم",
+        "sold": "تم بيع",
+        "quantity_available": "الكمية المتوفرة",
+        "add_to_cart_btn": "أضف إلى السلة"
+    },
+    "Detailes": {
+        "price": "السعر",
+        "EGP": "ج.م",
+        "ratingsAverage": "التقييم",
+        "description": "الوصف",
+        "quantity_available": "الكمية المتوفرة",
+        "sold": "تم بيع",
+        "average_rating": "متوسط التقييم",
+        "brand": "العلامة التجارية"
+    },
+    "cart": {
+        "clear cart": "تفريغ السلة",
+        "Total": "الإجمالي",
+        "continue": "متابعة"
+    }
+}

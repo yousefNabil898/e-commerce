@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { enviroment } from '../environments/environments';
-import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -17,23 +16,17 @@ export class CartService {
       {
         "productId": id
       },
-      {
-        headers: this.myHeaders
-      }
+  
     )
   }
   getProductCart(): Observable<any> {
     return this._HttpClient.get(`${enviroment.baseUrl}/api/v1/cart`,
-      {
-        headers: this.myHeaders
-      }
+  
     )
   }
   deleteProductCart(id: string): Observable<any> {
     return this._HttpClient.delete(`${enviroment.baseUrl}/api/v1/cart/${id}`,
-      {
-        headers: this.myHeaders
-      }
+
     )
   }
   updateProductCart(quantity: number, id: string): Observable<any> {
@@ -41,16 +34,12 @@ export class CartService {
       {
         "count": quantity
       },
-      {
-        headers: this.myHeaders
-      }
+  
     )
   }
   clearCart(): Observable<any> {
     return this._HttpClient.delete(`${enviroment.baseUrl}/api/v1/cart`,
-      {
-        headers: this.myHeaders
-      }
+
     )
   }
 

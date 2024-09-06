@@ -1,0 +1,38 @@
+{
+    "navbar": {
+        "Home": "Home",
+        "Products": "Products",
+        "Categories": "Categories",
+        "Brand": "Brand",
+        "lang": "Language",
+        "en": "English",
+        "ar": "Arabic",
+        "Sign Out": "Sign Out"
+    },
+    "Home": {
+        "main_categories": "Main Categories",
+        "recommended_for_you": "Recommended for you",
+        "add_to_cart": "Add To Cart",
+        "brand": "Brand",
+        "average_rating": "Average Rating",
+        "sold": "Sold",
+        "quantity_available": "Quantity Available",
+        "add_to_cart_btn": "Add to Cart"
+    },
+    "Detailes": {
+        "price": "Price",
+        "EGP": "EGP",
+        "ratingsAverage": "Rating",
+        "description": "Description",
+        "brand": "Brand",
+        "average_rating": "Average Rating",
+        "sold": "Sold",
+        "quantity_available": "Quantity Available"
+    },
+    "cart": {
+        "clear cart": "clear cart",
+        "Total": "Total",
+        "continue": "Continue"
+
+    }
+}

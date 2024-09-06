@@ -1,39 +1,39 @@
-<section class="mt-2 cr">
-    <owl-carousel-o [options]="customOptionsmain">
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img1.jpg.avif" alt="">
-        </ng-template>
+<section class="pt-3">
+    <div class="cr mt-3 ">
+        <owl-carousel-o [options]="customOptionsmain">
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img1.jpg.avif" alt="">
+            </ng-template>
 
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img3.jpg.avif" alt="">
-        </ng-template>
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img4.jpg.avif" alt="">
-        </ng-template>
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img5.jpg.avif" alt="">
-        </ng-template>
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img6.jpg.avif" alt="">
-        </ng-template>
-        <ng-template carouselSlide>
-            <img class="w-100" src="../../../assets/images/img7.jpg.avif" alt="">
-        </ng-template>
-    </owl-carousel-o>
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img3.jpg.avif" alt="">
+            </ng-template>
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img4.jpg.avif" alt="">
+            </ng-template>
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img5.jpg.avif" alt="">
+            </ng-template>
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img6.jpg.avif" alt="">
+            </ng-template>
+            <ng-template carouselSlide>
+                <img class="w-100" src="../../../assets/images/img7.jpg.avif" alt="">
+            </ng-template>
+        </owl-carousel-o>
+    </div>
 </section>
 
-
-
 <section class="mt-3 container-fluid">
-    <h3 class="fw-bolder text-main pb-3 ">main categories</h3>
+    <h3 class="fw-bolder text-main pb-3 ">{{"Home.main_categories" | translate}}</h3>
     <owl-carousel-o [options]="customOptionscat">
 
         @for (category of categoryList; track category._id) {
 
         <ng-template carouselSlide>
             <div class="position-relative carousel">
-                <img class="w-100  border-top border-bottom cr border-1 " height="220px" [src]="category.image"
-                    [alt]="category.name">
+                <img class="w-100  border-top border-bottom cr border-1 object-fit-fill" height="225px"
+                    [src]="category.image" [alt]="category.name">
                 <div class="carousel-context cr ">
                     <h2 class="text-center h5 text-white fw-bolder ">{{category.name}}</h2>
                 </div>
@@ -47,11 +47,9 @@
 
 </section>
 
-
-
 <section class="mt-5">
     <div class="container-fluid">
-        <h3 class="fw-bolder text-main pb-3 ">Recommended for you</h3>
+        <h3 class="fw-bolder text-main pb-3 ">{{"Home.recommended_for_you" | translate}}</h3>
         <div class="row g-3">
             @for (product of productList; track product.id) {
             <div class="col-md-2 col-6">
@@ -63,20 +61,23 @@
                             <h5 class=" h5 py-1  m-0 flex-wrap fw-bold">{{product.title.split(" ",2).join(" ")}}</h5>
                         </div>
                         <div class="p-2  d-flex justify-content-between ">
-                            <p class="m-0 fs-6 fw-bold">{{product.price | currency: "EGP"}} </p>
-                            <p class="m-0 text-muted">{{product.ratingsAverage}} <span> <i
-                                        class="fas fa-star rating-color"></i></span></p>
+                            <div class="d-flex">
+                                <span class="coin fw-bold">EGP</span>
+                                <p class="m-0  fs-6 fw-bold">{{product.price | currency :" "}} </p>
+                            </div>
+                            <p class="m-0 text-muted">{{product.ratingsAverage}} <span> <i class="fas fa-star rating-color"></i></span></p>
                         </div>
                     </div>
                     <div class="mx-auto btn-cart  p-1">
-                        <button (click)="addProductToCart(product.id)" class="button">
-                            <span>Add to cart</span>
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-
+                        <div (click)="addProductToCart(product.id)" class="button">
+                            <div class="button-wrapper">
+                                <div class="text">{{"Home.add_to_cart_btn" | translate}}</div>
+                                <span class="icon">
+                                    <i class="fas fs-5 fa-shopping-cart"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
             }

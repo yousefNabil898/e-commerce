@@ -7,23 +7,40 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link ps-1" routerLink="home" routerLinkActive="active-link">Home</a>
+                    <a class="nav-link ps-1" routerLink="home"
+                        routerLinkActive="active-link">{{"navbar.Home"|translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ps-1" routerLink="proudect" routerLinkActive="active-link">Product</a>
+                    <a class="nav-link ps-1" routerLink="proudect" routerLinkActive="active-link">
+                        {{"navbar.Products"|translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ps-1" routerLink="categories" routerLinkActive="active-link">Categories</a>
+                    <a class="nav-link ps-1" routerLink="categories"
+                        routerLinkActive="active-link">{{"navbar.Categories"|translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ps-1" routerLink="brand" routerLinkActive="active-link">Brand</a>
+                    <a class="nav-link ps-1" routerLink="brand"
+                        routerLinkActive="active-link">{{"navbar.Brand"|translate}}</a>
                 </li>
             </ul>
 
-            <ul class="navbar-nav ms-auto d-flex align-items-center">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{"navbar.lang"|translate}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li [class.bg-main]="_TranslateService.currentLang =='en' " (click)="change('en')"><a
+                                class="dropdown-item cr  ">{{"navbar.en"|translate}}</a>
+                        </li>
+                        <li [class.bg-main]="_TranslateService.currentLang =='ar'" (click)=" change('ar')"><a
+                                class="dropdown-item cr ">{{"navbar.ar"|translate}}</a></li>
+                    </ul>
+                </li>
+               <div class="d-flex">
                 <li class="nav-item me-2">
                     <a routerLink="cart" routerLinkActive="active-link" class="nav-link ps-1 cr">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -49,8 +66,9 @@
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                 </li>
+               </div>
                 <li class="nav-item">
-                    <a class="nav-link ps-1 cr" (click)="signOut()">Sign Out</a>
+                    <a class="nav-link ps-1 cr" (click)="signOut()">{{"navbar.Sign Out"|translate}}</a>
                 </li>
             </ul>
         </div>

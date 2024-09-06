@@ -12,6 +12,8 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { authGuard } from './core/guards/auth.guard';
 import { DetailesComponent } from './components/detailes/detailes.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
+import { OrderComponent } from './components/order/order.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 
 export const routes: Routes = [
     {
@@ -23,14 +25,17 @@ export const routes: Routes = [
         ]
     },
     {
-        path: "", component: BlankLayoutComponent,canActivate:[authGuard], children: [
+        path: "", component: BlankLayoutComponent, canActivate: [authGuard], children: [
             { path: "", redirectTo: "home", pathMatch: "full" },
-            { path: "home", component: HomeComponent,title:"home" },
-            { path: "proudect", component: ProudectComponent,title:"proudect" },
-            { path: "categories", component: CategoriesComponent,title:"categories" },
-            { path: "cart", component: CartComponent ,title:"cart"},
-            { path: "brand", component: BrandsComponent ,title:"brand"},
-            { path: "detailes/:id", component: DetailesComponent,title:"detailes" },
+            { path: "home", component: HomeComponent, title: "home" },
+            { path: "proudect", component: ProudectComponent, title: "proudect" },
+            { path: "categories", component: CategoriesComponent, title: "categories" },
+            { path: "cart", component: CartComponent, title: "cart" },
+            { path: "brand", component: BrandsComponent, title: "brand" },
+            { path: "order/:id", component: OrderComponent, title: "order" },
+            { path: "detailes/:id", component: DetailesComponent, title: "detailes" },
+            { path: "allorders", component: AllordersComponent, },
+
         ]
     },
     { path: "**", component: NotfoundComponent },

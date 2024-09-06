@@ -1,19 +1,16 @@
 <section class="mt-5 ">
-    <div class="container  pt-5 pb-5">
+    <div class="container pt-5 pb-5">
         <div class="row">
-            <div class="col-md-12 d-md-none ">
+            <div class="col-md-12 d-md-none">
                 <owl-carousel-o [options]="customOptionsDetailes">
                     @for (product of detailesProduct.images; track $index) {
 
                     <ng-template carouselSlide>
-
-                        <img [src]="product" class="w-75 cr mx-auto  object-fit-contain">
-
+                        <img [src]="product" class="w-75 cr mx-auto object-fit-contain">
                     </ng-template>
                     }
                 </owl-carousel-o>
             </div>
-
 
             <div class="col-md-6 d-md-block mt-2">
                 <h1 class="fw-bolder">{{ detailesProduct.title }}</h1>
@@ -21,43 +18,36 @@
                     {{ detailesProduct.category.name }} > {{ detailesProduct.subcategory[0].name }}
                 </p>
                 <h4 class="text-success">
-                    {{ detailesProduct.price | currency :"EGP  " }}
+                    {{ detailesProduct.price | currency :"EGP " }}
                 </h4>
                 <p>{{ detailesProduct.description }}</p>
                 <div class="mt-3">
-                    <p><strong>Brand:</strong> {{ detailesProduct.brand.name }}</p>
-                    <p><strong class="me-2">Average Rating:</strong>
+                    <p><strong>{{"Detailes.brand" | translate}}:</strong> {{ detailesProduct.brand.name }}</p>
+                    <p><strong class="me-2">{{"Detailes.average_rating" | translate}}:</strong>
                         @for (item of [1,2,3,4,5].slice(0,detailesProduct.ratingsAverage ); track $index) {
-
                         <span> <i class="fas fa-star rating-color"></i></span>
-
                         }
                         @if (detailesProduct.ratingsAverage %1 !==0) {
-                        <span> <i class="fa-solid  fa-star-half-stroke rating-color"></i></span>
-
+                        <span> <i class="fa-solid fa-star-half-stroke rating-color"></i></span>
                         }
                     </p>
-                    <p><strong>Sold:</strong> {{ detailesProduct.sold }}</p>
-                    <p><strong>Quantity Available:</strong> {{ detailesProduct.quantity }}</p>
+                    <p><strong>{{"Detailes.sold" | translate}}:</strong> {{ detailesProduct.sold }}</p>
+                    <p><strong>{{"Detailes.quantity_available" | translate}}:</strong> {{ detailesProduct.quantity }}
+                    </p>
                 </div>
-                <button (click)="addProductToCart(detailesProduct.id)" class="btn-main mt-3">Add to Cart</button>
+                <button (click)="addProductToCart(detailesProduct.id)" class="btn-main mt-3">{{"Home.add_to_cart_btn" |
+                    translate}}</button>
             </div>
 
             <div class="col-md-5 d-none d-md-block">
                 <owl-carousel-o [options]="customOptionsDetailes">
                     @for (product of detailesProduct.images; track $index) {
-
                     <ng-template carouselSlide>
-
                         <img [src]="product" class="w-75 cr mx-auto object-fit-contain">
-
-
-
                     </ng-template>
                     }
                 </owl-carousel-o>
             </div>
         </div>
     </div>
-
 </section>
