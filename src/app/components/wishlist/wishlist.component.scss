@@ -1,3 +1,8 @@
+.whislist{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 .button {
     --width: 120px;
     --height: 35px;
@@ -15,9 +20,9 @@
     transition: background 0.7s;
   }
   
-
-
- 
+  
+  
+  
   .text {
     display: flex;
     align-items: center;
@@ -42,6 +47,30 @@
   .text,
   .icon {
     transition: top 0.5s;
+  }
+  
+  .card-animation {
+    opacity: 1;
+    animation: animation;
+    animation-duration: 2s;
+    transition: all 1s;
+  }
+  
+  @keyframes animation {
+    0% {
+      transform: translatey(100%);
+      opacity: 0;
+    }
+  
+    50% {
+      transform: translatey(-5%);
+  
+    }
+  
+    100% {
+      transform: translatey(0%);
+      opacity: 1;
+    }
   }
   
   .icon {

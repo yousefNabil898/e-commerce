@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../core/services/cart.service';
 import { CurrencyPipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { DetailesProduct } from '../../core/interfaces/detailes-product';
+import { WhishlistService } from '../../core/services/whishlist.service';
 
 @Component({
   selector: 'app-detailes',
@@ -19,12 +21,13 @@ import { TranslateModule } from '@ngx-translate/core';
 export class DetailesComponent implements OnInit, OnDestroy {
   private readonly _ActivatedRoute = inject(ActivatedRoute);
   private readonly _ProductsService = inject(ProductsService);
+  private readonly _WhishlistService = inject(WhishlistService);
   private readonly _ToastrService = inject(ToastrService)
   private readonly _CartService = inject(CartService)
 
 
   detalisProductSub !: Subscription
-  detailesProduct: Iproduct = {} as Iproduct;
+  detailesProduct: DetailesProduct = {} as DetailesProduct;
   selectedImage: string = '';
   customOptionsDetailes: OwlOptions = {
     loop: true,
@@ -42,27 +45,42 @@ export class DetailesComponent implements OnInit, OnDestroy {
     nav: false
   };
   ngOnInit(): void {
+    this._CartService.getUserCart().subscribe({
+      next: (res) => {
+          this._CartService.numCartItems.set(res.numOfCartItems)
+          console.log(res);
 
+      }
+  })
     this._ActivatedRoute.paramMap.subscribe({
       next: (p) => {
         let idProduct = p.get("id");
         if (idProduct) {
           this.detalisProductSub = this._ProductsService.getSpacifProduct(idProduct).subscribe({
             next: (res) => {
+              console.log("res", res);
+
               this.detailesProduct = res.data;
+              console.log("detailesProduct", this.detailesProduct);
+
               this.selectedImage = res.data.images
 
 
-            },
-            error: (err) => {
-              console.log(err);
             }
           });
         }
       }
     });
-  }
+    this._WhishlistService.getUserWishlist().subscribe({
+      next: (res) => {
+        console.log(res);
+        this._WhishlistService.numWishIems.set(res.data.length)
 
+
+      }
+    });
+
+  }
   ngOnDestroy(): void {
     this.detalisProductSub.unsubscribe();
   }
@@ -74,11 +92,8 @@ export class DetailesComponent implements OnInit, OnDestroy {
   addProductToCart(id: string) {
     this._CartService.addProductCart(id).subscribe({
       next: (res) => {
+        this._CartService.numCartItems.set(res.numOfCartItems)
         this._ToastrService.success(res.message, "Fresh Cart")
-      },
-      error: (err) => {
-        console.log(err);
-
       }
     })
   }

@@ -1,3 +1,36 @@
 i:hover {
     color: var(--main-color)
 }
+
+.nav-backgrund {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb)) ;
+}
+
+.nav-backgrund.scrolled {
+    background-color: rgba(253, 253, 253, 0.788);
+    transition-duration: 1s;
+}
+
+.cart-count {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    font-size: 10px;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-heart-count {
+    margin-left: 5px;
+    font-size: 8px;
+    color: black;
+    border-radius: 50%;
+}

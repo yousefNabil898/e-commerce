@@ -22,7 +22,7 @@ interface Category {
     _id: string;
     name: string;
     slug: string;
-    image: string;
+    image?: string;
 }
 
 interface Subcategory {

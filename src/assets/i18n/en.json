@@ -17,6 +17,9 @@
         "average_rating": "Average Rating",
         "sold": "Sold",
         "quantity_available": "Quantity Available",
+        "category": "category",
+        "search by name": "search by name",
+        "EGP": "EGP",
         "add_to_cart_btn": "Add to Cart"
     },
     "Detailes": {
@@ -32,7 +35,18 @@
     "cart": {
         "clear cart": "clear cart",
         "Total": "Total",
+        "Price": "Price",
+        "Quantity": "Quantity",
+        "Brand": "Brand",
+        "Rating": "Rating",
         "continue": "Continue"
-
+    },
+    "order": {
+        "shippingAddress": "shippingAddress",
+        "detailes": "detailes",
+        "phone": "phone",
+        "city": "city",
+        "Checkout": "Checkout"
+   
     }
 }

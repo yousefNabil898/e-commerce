@@ -1,1 +1,59 @@
-<p>proudect works!</p>
+<section class="mt-3 bg-img pt-3">
+    <div class="w-100 p-3">
+        <div class="container-fluid mx-auto d-flex justify-content-between align-items-center">
+            <div class="p-2">
+                <select class="form-control cr" [(ngModel)]="selectedValue">
+                    <option value="" disabled selected>{{"Home.category" | translate}}</option>
+                    @for (cat of options; track $index) {
+                        <option [value]="cat.value">{{ cat.label }}</option>
+                    }
+                </select>
+            </div>
+            <input [(ngModel)]="searchWord" class="form-control w-50" type="search"
+                   placeholder='{{"Home.search by name" | translate}}'>
+        </div>
+    </div>
+
+    <div class="container-fluid p-2">
+        <h3 class="fw-bolder text-main pb-3">{{"Home.recommended_for_you" | translate}}</h3>
+        <div class="row g-3">
+            @for (product of productList() | search: searchWord() | category: selectedValue() | wishlistChecker: wishlistProducts(); track product.id) {
+                <div class="col-md-2 col-6">
+                    <div class="card card-animation position-relative shadow-sm cr overflow-hidden">
+                        <div>
+                            <i [attr.data-id]="product.id" [ngClass]="{'text-danger': product.isWishList}"
+                               (click)="whishlist($event, product.id)"
+                               class="fa-solid fa-heart whislist heart-solid"></i>
+                        </div>
+
+                        <div [routerLink]="['/detailes', product.id]">
+                            <img loading="lazy" [src]="product.imageCover" class="card-img-top w-100" [alt]="product.title">
+                            <div class="card-body p-2">
+                                <p class="text-main m-0 fs-small">{{product.category.name}}</p>
+                                <h5 class="py-1 m-0 fw-bold">{{product.title.split(" ", 2).join(" ")}}</h5>
+                            </div>
+                            <div class="p-2 d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <span class="coin fw-bold">{{"Home.EGP" | translate}}</span>
+                                    <p class="m-0 fs-6 fw-bold">{{product.price | currency: " "}}</p>
+                                </div>
+                                <p class="m-0 text-muted">{{product.ratingsAverage}} <span><i class="fas fa-star rating-color"></i></span></p>
+                            </div>
+                        </div>
+
+                        <div class="mx-auto btn-cart p-1">
+                            <div (click)="addProductToCart(product.id)" class="button">
+                                <div class="button-wrapper">
+                                    <div class="text">{{"Home.add_to_cart_btn" | translate}}</div>
+                                    <span class="icon">
+                                        <i class="fas fs-5 fa-shopping-cart"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

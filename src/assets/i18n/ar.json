@@ -16,7 +16,10 @@
         "brand": "العلامة التجارية",
         "average_rating": "متوسط التقييم",
         "sold": "تم بيع",
+        "category": "الفئات",
+        "search by name": "البحث بأسم المنتج",
         "quantity_available": "الكمية المتوفرة",
+        "EGP": "ج.م",
         "add_to_cart_btn": "أضف إلى السلة"
     },
     "Detailes": {
@@ -32,6 +35,18 @@
     "cart": {
         "clear cart": "تفريغ السلة",
         "Total": "الإجمالي",
-        "continue": "متابعة"
+        "continue": "متابعة",
+        "Price": "السعر",
+        "Quantity": "الكمية",
+        "Brand": "الماركة",
+        "Rating": "التقييم"
+    },
+    "order": {
+        "shippingAddress": "تفاصيل الشحن",
+        "detailes": "التفاصيل",
+        "phone": "تليفون",
+        "city": "المدينة",
+        "Checkout": "الحساب"
+   
     }
 }

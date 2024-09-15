@@ -3,11 +3,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersService } from '../../core/services/orders.service';
 import { jwtDecode } from 'jwt-decode';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TranslateModule],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

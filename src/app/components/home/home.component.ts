@@ -1,34 +1,24 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ProductsService } from '../../core/services/products.service';
-import { Iproduct } from '../../core/interfaces/iproduct';
 import { Subscription } from 'rxjs';
 import { CategoriesService } from '../../core/services/categories.service';
 import { Icategory } from '../../core/interfaces/icategory';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { RouterLink } from '@angular/router';
-import { CartService } from '../../core/services/cart.service';
-import { ToastrService } from 'ngx-toastr';
 import { CurrencyPipe } from '@angular/common';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { ProudectComponent } from '../proudect/proudect.component';
+import { SearchPipe } from '../../core/pipes/search.pipe';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselModule, RouterLink, CurrencyPipe, TranslateModule],
+  imports: [CarouselModule, RouterLink, CurrencyPipe, TranslateModule, ProudectComponent,SearchPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  productList: Iproduct[] = []
   categoryList: Icategory[] = []
-  allProductsub !: Subscription
   allCategorysub !: Subscription
-  private readonly _ProductsService = inject(ProductsService)
   private readonly _CategoriesService = inject(CategoriesService)
-  private readonly _CartService = inject(CartService)
-  private readonly _ToastrService = inject(ToastrService)
-  private readonly _NgxSpinnerService = inject(NgxSpinnerService)
 
 
   customOptionscat: OwlOptions = {
@@ -41,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
-    navSpeed: 700,
+    navSpeed: 500,
     navText: ['', ''],
     responsive: {
       0: {
@@ -79,19 +69,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this._NgxSpinnerService.show("loading-main")
-    this.allProductsub = this._ProductsService.getAllProducts().subscribe({
-      next: (res) => {
-        this.productList = res.data
-        this._NgxSpinnerService.hide("loading-main")
-
-      },
-      error: (err) => {
-        console.log(err);
-
-      },
-    })
-
     this.allCategorysub = this._CategoriesService.getAllcategories().subscribe({
       next: (res) => {
         this.categoryList = res.data
@@ -104,23 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-    this.allProductsub?.unsubscribe()
     this.allCategorysub?.unsubscribe()
   }
-  addProductToCart(id: string) {
-    this._CartService.addProductCart(id).subscribe({
-      next: (res) => {
-        if (localStorage.getItem("lang") == "en") {
-          this._ToastrService.success(res.message, "Fresh Cart")
-        }else if(localStorage.getItem("lang") == "ar"){
-          this._ToastrService.success("تم اضافة المنتج الي عربة التسوق ", "Fresh Cart")
 
-        }
-      },
-      error: (err) => {
-        console.log(err);
-
-      }
-    })
-  }
 }

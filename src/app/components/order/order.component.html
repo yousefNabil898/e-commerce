@@ -1,31 +1,32 @@
 <section>
-    <form class="bg-main-light p-4 min-vh-100 mt-5">
-        <h1 class="mx-auto mb-3 fw-bolder text-main mt-5">shippingAddress</h1>
+    <div class="bg-main-light p-4  mt-5 border-2 border-bottom ">
+        <h1 class="mx-auto mb-3 fw-bolder text-main mt-5">{{"order.shippingAddress"|translate}}</h1>
         <form [formGroup]="order" (ngSubmit)="orderSubmite()" class="mx-auto">
             <div class="form-floating mt-2">
-                <input formControlName="detailes" type="text" id="detailes" class="form-control" placeholder="detailes">
-                <label for="detailes">detailes</label>
+                <textarea formControlName="detailes" type="text" id="detailes" class="form-control"
+                    placeholder="detailes"></textarea>
+                <label for="detailes">{{"order.detailes"|translate}}</label>
             </div>
-
-
-
             <div class="form-floating mt-2">
-                <textarea formControlName="phone" type="tel" id="phone" class="form-control"
-                    placeholder="phone"></textarea>
-                <label for="password">phone</label>
-
+                <input formControlName="phone" type="tel" id="phone" class="form-control" placeholder="phone">
+                <label for="phone">{{"order.phone"|translate}}</label>
             </div>
             <div class="form-floating mt-2">
                 <input formControlName="city" type="text" id="city" class="form-control" placeholder="city">
-                <label for="password">city</label>
-
+                <label for="city">{{"order.city"|translate}}</label>
             </div>
-            <div class=" mt-3  d-flex justify-content-center">
-                <button  class="button  mx-sm-auto  fw-bolder">
-                    <span class="text-wrap">Checkout</span>
-                    <i class="fa-solid fa-credit-card"></i></button>
+            <div class="w-25 d-flex justify-content-center mt-4">
+                <button class="btn-main border-0 p-0 ">
+                    <div class="button">
+                        <div class="button-wrapper cr">
+                            <div class="text">{{"order.Checkout"|translate}}</div>
+                            <span class="icon">
+                                <i class="fas fs-5 fa-credit-card"></i>
+                            </span>
+                        </div>
+                    </div>
+                </button>
             </div>
         </form>
-
-    </form>
+    </div>
 </section>

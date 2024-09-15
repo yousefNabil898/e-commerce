@@ -6,7 +6,7 @@
                     @for (product of detailesProduct.images; track $index) {
 
                     <ng-template carouselSlide>
-                        <img [src]="product" class="w-75 cr mx-auto object-fit-contain">
+                        <img loading="lazy" [src]="product" class="w-75 cr mx-auto object-fit-contain">
                     </ng-template>
                     }
                 </owl-carousel-o>
@@ -15,7 +15,7 @@
             <div class="col-md-6 d-md-block mt-2">
                 <h1 class="fw-bolder">{{ detailesProduct.title }}</h1>
                 <p class="text-muted">
-                    {{ detailesProduct.category.name }} > {{ detailesProduct.subcategory[0].name }}
+                    {{ detailesProduct.category.name }}  > {{ detailesProduct.subcategory[0].name }}
                 </p>
                 <h4 class="text-success">
                     {{ detailesProduct.price | currency :"EGP " }}

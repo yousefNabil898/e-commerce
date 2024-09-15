@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MytranslateService {
   private readonly _TranslateService = inject(TranslateService)
   private readonly _platId = inject(PLATFORM_ID)
+  isLeft: boolean = true
   constructor() {
     if (isPlatformBrowser(this._platId)) {
       let lang = localStorage.getItem("lang")
@@ -24,9 +25,12 @@ export class MytranslateService {
     let lang = localStorage.getItem("lang")
     if (lang === "en") {
       document.documentElement.dir = "ltr"
+      this.isLeft = true
 
     } else if (lang === "ar") {
       document.documentElement.dir = "rtl"
+      this.isLeft = true
+
 
     }
   }
