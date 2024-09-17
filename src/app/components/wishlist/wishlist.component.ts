@@ -26,24 +26,25 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
     this._CartService.getUserCart().subscribe({
       next: (res) => {
-        this.numCartItems.set(res.numOfCartItems);
+        this._CartService.numCartItems.set(res.numOfCartItems);
       }
     });
 
     this._WhishlistService.getUserWishlist().subscribe({
-      next: (res:any) => {
-        this.numWishItems.set(res.data.length);
+      next: (res: any) => {
         this.wishListProducts.set(res.data);
+        this._WhishlistService.numWishIems.set(res.count)
+
       }
     });
   }
 
   removeProduct(id: string): void {
     this._WhishlistService.deletePrdcutWishlist(id).subscribe({
-      next: (res:any) => {
+      next: (res: any) => {
         this.showSuccessMessage(res.message, 'Product removed from wishlist');
         this._WhishlistService.getUserWishlist().subscribe({
-          next: (res:any) => {
+          next: (res: any) => {
             this.wishListProducts.set(res.data);
             this.numWishItems.set(res.data.length);
           }
@@ -54,7 +55,7 @@ export class WishlistComponent implements OnInit {
 
   addProductToCart(id: string): void {
     this._CartService.addProductCart(id).subscribe({
-      next: (res:any) => {
+      next: (res: any) => {
         this.numCartItems.set(res.numOfCartItems);
         this.removeProduct(id);
         this.showSuccessMessage(res.message, 'Product added to cart');

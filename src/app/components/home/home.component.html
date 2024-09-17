@@ -1,23 +1,63 @@
 <section class="pt-3">
-    <div class="cr mt-3 ">
+    <div class="cr mt-5 letter-spacing ">
         <owl-carousel-o [options]="customOptionsmain">
             <ng-template carouselSlide>
-                <img class="w-100 object-fit-cover" src="../../../assets/images/slider-1.jpeg" alt="">
-            </ng-template>
-            <ng-template carouselSlide>
-                <img class="w-100 object-fit-cover" src="../../../assets/images/slider-2.jpeg" alt="">
-            </ng-template>
-        
-            <ng-template carouselSlide>
-                <img class="w-100 object-fit-cover" src="../../../assets/images/slider-4.png" alt="">
-            </ng-template>
-          
-            <ng-template carouselSlide>
-                <img class="w-100 object-fit-cover" src="../../../assets/images/slider-2.jpeg" alt="">
-            </ng-template>
-          
+                <div class="carousel-3   ">
+                    <div class="row text-center h-100  d-flex justify-content-end align-items-center p-5 text-white">
+                        <div class="col-md-6  ">
+                            <h1 class="fs-1 fw-bolder ">Fresh Cart</h1>
+                            <p class="fs-5">
+                                {{'Home.description-1' | translate}}
+                            </p>
+                        </div>
+                    </div>
 
-          
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="carousel-2 ">
+                    <div class="row  text-center h-100  d-flex justify-content-end align-items-center p-5 text-white">
+                        <div class="col-md-6 text-dark ">
+                            <h1 class="fs-1 fw-bolder ">Fresh Cart</h1>
+                            <p class="fs-5">
+                                {{'Home.description-2' | translate}}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="carousel-4 ">
+                    <div class="row text-center  h-100  d-flex justify-content-end align-items-center p-5 text-white">
+                        <div class="col-md-6 text-dark ">
+                            <h1 class="fs-1 fw-bolder ">Fresh Cart</h1>
+                            <p class="fs-5">
+                                {{'Home.description-3' | translate}}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <div class="carousel-1 ">
+                    <div class="row text-center h-100  d-flex justify-content-end align-items-center p-5 text-white">
+                        <div class="col-md-6 text-dark ">
+                            <h1 class="fs-1 fw-bolder ">Fresh Cart</h1>
+                            <p class="fs-5">
+                                {{'Home.description-4' | translate}}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+
+
         </owl-carousel-o>
     </div>
 </section>
@@ -30,7 +70,7 @@
 
         <ng-template carouselSlide>
             <div class="position-relative carousel">
-                <img class="w-100  border-top border-bottom cr border-1 object-fit-fill" height="225px"
+                <img class="w-100  border-top border-bottom cr border-1 object-fit-fill" height="185px"
                     [src]="category.image" [alt]="category.name">
                 <div class="carousel-context cr ">
                     <h2 class="text-center h5 text-white fw-bolder ">{{category.name}}</h2>

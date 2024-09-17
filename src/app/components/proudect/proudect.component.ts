@@ -30,10 +30,11 @@ export class ProudectComponent implements OnInit, OnDestroy {
   categoryList = signal<Icategory[]>([]);
   searchWord = signal<string>('');
   selectedValue = signal<string>('');
-  
+
   allProductSub!: Subscription;
   allCategorySub!: Subscription;
-  
+  allWishListSub!: Subscription;
+  skeletonArray = Array(20).fill(0);
   options = [
     { value: "", label: "all categories" },
     { value: "Women's Fashion", label: "Women's Fashion" },
@@ -53,7 +54,6 @@ export class ProudectComponent implements OnInit, OnDestroy {
     this._CartService.getUserCart().subscribe({
       next: (res) => {
         this._CartService.numCartItems.set(res.numOfCartItems);
-        console.log(res);
       }
     });
 
@@ -78,7 +78,7 @@ export class ProudectComponent implements OnInit, OnDestroy {
       }
     });
 
-    this._WhishlistService.getUserWishlist().subscribe({
+    this.allWishListSub = this._WhishlistService.getUserWishlist().subscribe({
       next: (res) => {
         console.log(res);
         this.wishlistProducts.set(res.data);
@@ -91,6 +91,8 @@ export class ProudectComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.allProductSub?.unsubscribe();
     this.allCategorySub?.unsubscribe();
+    this.allWishListSub?.unsubscribe();
+
   }
 
   addProductToCart(id: string) {

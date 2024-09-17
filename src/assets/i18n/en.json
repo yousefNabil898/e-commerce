@@ -3,7 +3,7 @@
         "Home": "Home",
         "Products": "Products",
         "Categories": "Categories",
-        "Brand": "Brand",
+        "Brand": "Our Brands",
         "lang": "Language",
         "en": "English",
         "ar": "Arabic",
@@ -20,7 +20,14 @@
         "category": "category",
         "search by name": "search by name",
         "EGP": "EGP",
-        "add_to_cart_btn": "Add to Cart"
+        "add_to_cart_btn": "Add to Cart",
+        "description-1": "Your one-stop online store for fresh food, trendy clothing, and top electronics. Find everything you need, from fresh groceries to stylish outfits and the latest tech. Enjoy fast delivery, secure payments, and a seamless shopping experience, all in one place.",
+        "description-2": "Shop fresh, hand-picked fruits and vegetables sourced from the finest farms, delivered straight to your doorstep. Enjoy top-quality, nutritious produce with the convenience of avoiding store trips. Perfect for family meals or stocking up on healthy snacks with ease.",
+        "description-4": "Discover everything you need at Fresh Cart, where you can find your favorite clothing, the latest electronics, and fresh groceries—all in one convenient place. Enjoy a streamlined shopping experience with a diverse selection and fast delivery.",
+        "description-3": "Experience modern design and effortless online shopping at Fresh Cart. Enjoy a user-friendly interface, quick browsing, and secure payment options for a seamless, enjoyable shopping experience."
+
+
+
     },
     "Detailes": {
         "price": "Price",
@@ -48,5 +55,9 @@
         "city": "city",
         "Checkout": "Checkout"
    
+    },
+    "wishlist": {
+        "Your wishlist": " Your wishlist",
+        "No products yet": " No products yet"
     }
 }

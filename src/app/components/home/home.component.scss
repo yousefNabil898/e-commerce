@@ -1,7 +1,48 @@
 .fs-small {
     font-size: 12px;
 }
+.carousel-1{
+  width: 100%;
+  background-image: url(../../../assets/images/slider-1.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
 
+  background-color: white;
+  border-radius: 15px;
+}
+.carousel-2{
+  background-image: url(../../../assets/images/slider-2.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+
+  background-color: white;
+  border-radius: 15px;
+}
+.letter-spacing {
+  line-height: 1.8; 
+  
+}
+
+.carousel-3{
+  background-image: url(../../../assets/images/slider-3.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+
+  background-color: white;
+  border-radius: 15px;
+}
+.carousel-4{
+  background-image: url(../../../assets/images/slider-4.png);
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+
+  background-color: white;
+  border-radius: 15px;
+}
 .coin{
   font-size: 11px;
   margin-right: 2px;
