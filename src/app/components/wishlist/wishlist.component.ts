@@ -42,7 +42,7 @@ export class WishlistComponent implements OnInit {
   removeProduct(id: string): void {
     this._WhishlistService.deletePrdcutWishlist(id).subscribe({
       next: (res: any) => {
-        this.showSuccessMessage(res.message, 'Product removed from wishlist');
+        this.showSuccessMessage(res.message);
         this._WhishlistService.getUserWishlist().subscribe({
           next: (res: any) => {
             this.wishListProducts.set(res.data);
@@ -58,16 +58,16 @@ export class WishlistComponent implements OnInit {
       next: (res: any) => {
         this.numCartItems.set(res.numOfCartItems);
         this.removeProduct(id);
-        this.showSuccessMessage(res.message, 'Product added to cart');
+        this.showSuccessMessage(res.message);
       }
     });
   }
 
-  private showSuccessMessage(message: string, title: string): void {
+  private showSuccessMessage(message: string): void {
     if (localStorage.getItem('lang') === 'en') {
-      this._ToastrService.success(message, title);
+      this._ToastrService.success(message );
     } else if (localStorage.getItem('lang') === 'ar') {
-      this._ToastrService.success('تم ' + message, title);
+      this._ToastrService.success('تم اضافة المنتج الي السلة ');
     }
   }
 }
