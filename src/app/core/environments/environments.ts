@@ -1,4 +1,4 @@
  export const enviroment ={
     baseUrl: "https://ecommerce.routemisr.com",
-    urlServer: "http://localhost:62781"
+    urlServer: "https://freshcartplatformv2-mu.vercel.app"
 }
