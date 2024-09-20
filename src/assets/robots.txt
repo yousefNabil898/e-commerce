@@ -1,0 +1,5 @@
+User-agent 
+Disallow admin
+Disallow login
+Allow 
+Sitemap httpsfreshcartplatformv2-mu.vercel.app
