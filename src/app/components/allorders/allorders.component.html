@@ -1,1 +1,40 @@
-<p>allorders works!</p>
+<div class="container mt-5">
+    <h1 class="text-center mb-4 fw-bolder text-main">Order List</h1>
+    <div class="row">
+        @for (order of allOrder; track $index) {
+        <div class="col-md-6 s">
+            <div class="card shadow-sm mb-3">
+                <div class="card-header bg-main">
+                    <h5 class="text-white">Order id ({{ order.id }})
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Name:</strong> {{ order.user.name }}</p>
+                    <p><strong>Email:</strong> {{ order.user.email }}</p>
+                    <p><strong>Phone:</strong> {{ order.user.phone }}</p>
+                    <h6>Shipping Address</h6>
+                    <p><strong>Phone:</strong> {{ order.shippingAddress.phone }}</p>
+                    <p><strong>City:</strong> {{ order.shippingAddress.city }}</p>
+                    <h6 class="bg-main-light p-2 rounded-1">Products</h6>
+                    <ul>
+                        @for (item of order.cartItems; track $index) {
+                        <li>
+                            Title: {{ item.product.title }} <br />
+                            Price: {{ item.price }} EGP <br />
+                            Quantity: {{ item.count }}
+                        </li>
+                        }
+
+                    </ul>
+                    <h6 class="bg-main-light p-2 rounded-1">Order Details</h6>
+                    <p><strong>Payment Method:</strong> {{ order.paymentMethodType }}</p>
+                    <p><strong>Total Price:</strong> {{ order.totalOrderPrice }} EGP</p>
+                    <p><strong>Is Paid:</strong> {{ order.isPaid ? 'Yes' : 'No' }}</p>
+                    <p><strong>Is Delivered:</strong> {{ order.isDelivered ? 'Yes' : 'No' }}</p>
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+</div>
