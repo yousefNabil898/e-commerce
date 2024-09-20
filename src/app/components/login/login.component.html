@@ -1,7 +1,7 @@
-<section class="bg-main-light vh-100 d-flex align-items-center p-2 ">
-    <div class="container p-4">
-        <h1 class=" h3 text-main">login-in Now :</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmite()" class="mx-auto">
+<section class=" min-vh-100 d-flex justify-content-center align-items-center p-2 ">
+    <div class=" w-75 rounded-2 shadow  bg-main-light p-4">
+        <p class=" h3 text-main">login-in Now :</p>
+        <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmite()" class="mx-auto ">
             <div class="form-floating mt-2">
                 <input formControlName="email" type="email" id="email" class="form-control" placeholder="Email">
                 <label for="email">Email</label>
