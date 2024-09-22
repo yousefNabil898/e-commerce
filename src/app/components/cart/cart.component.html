@@ -1,5 +1,5 @@
 <div class="container-md pt-5 flex-column mt-5">
-    <button class="btn btn-danger " (click)="clearcart()">{{"cart.clear cart"| translate}}
+    <button [ngClass]="{'disabled': cartNumber() == 0}" class="btn btn-danger  " (click)="clearcart()">{{"cart.clear cart"| translate}}
     </button>
     <div class="row   p-2">
         @for (item of cartItems.products; track $index) {

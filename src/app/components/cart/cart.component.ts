@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, Signal, WritableSignal } from '@angular/core';
 import { CartService } from '../../core/services/cart.service';
 import { Icart } from '../../core/interfaces/icart';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,7 +11,7 @@ import { WhishlistService } from '../../core/services/whishlist.service';
 @Component({
     selector: 'app-cart',
     standalone: true,
-    imports: [CurrencyPipe, RouterLink, TranslateModule],
+    imports: [CurrencyPipe, RouterLink, TranslateModule, NgClass],
     templateUrl: './cart.component.html',
     styleUrl: './cart.component.scss'
 })
@@ -19,13 +19,15 @@ export class CartComponent implements OnInit {
     private readonly _CartService = inject(CartService)
     private readonly _ToastrService = inject(ToastrService)
     private readonly _WhishlistService = inject(WhishlistService)
+    cartNumber: WritableSignal<Number> = signal(0)
+
 
     cartItems: Icart = {} as Icart
     ngOnInit(): void {
         this._CartService.getUserCart().subscribe({
             next: (res) => {
                 this._CartService.numCartItems.set(res.numOfCartItems)
-                console.log(res);
+                this.cartNumber.set(res.numOfCartItems)
 
             }
         })
@@ -69,6 +71,9 @@ export class CartComponent implements OnInit {
                 this._CartService.numCartItems.set(0)
                 this.cartItems = {} as Icart
                 this._ToastrService.error("All Products Deleted", "Fresh cart")
+                this.cartNumber.set(0)
+                
+
 
             },
             error: (err) => {
