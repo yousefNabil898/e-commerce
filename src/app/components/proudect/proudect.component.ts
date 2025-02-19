@@ -20,7 +20,7 @@ import { WishlistCheckerPipe } from '../../core/pipes/wish-list-check.pipe';
 @Component({
   selector: 'app-proudect',
   standalone: true,
-  imports: [CarouselModule, FormsModule, WishlistCheckerPipe, NgClass, RouterLink, CurrencyPipe, NgFor, TranslateModule, SearchPipe, CategoryPipe],
+  imports: [CarouselModule, FormsModule, WishlistCheckerPipe, NgClass, RouterLink, CurrencyPipe, TranslateModule, SearchPipe, CategoryPipe],
   templateUrl: './proudect.component.html',
   styleUrl: './proudect.component.scss'
 })
@@ -47,7 +47,6 @@ export class ProudectComponent implements OnInit, OnDestroy {
   private readonly _CartService = inject(CartService);
   private readonly _WhishlistService = inject(WhishlistService);
   private readonly _ToastrService = inject(ToastrService);
-
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
@@ -58,6 +57,7 @@ export class ProudectComponent implements OnInit, OnDestroy {
     });
 
     this.allProductSub = this._ProductsService.getAllProducts().pipe(
+      
       map((res: any) => ({
         ...res,
         data: res.data.map((product: any) => ({
@@ -66,9 +66,10 @@ export class ProudectComponent implements OnInit, OnDestroy {
         }))
       }))
     ).subscribe({
-      next: (res) => {
+      next: (res) => {        
         this.productList.set(res.data);
-        console.log(this.productList());
+        
+
       },
     });
 
@@ -80,10 +81,8 @@ export class ProudectComponent implements OnInit, OnDestroy {
 
     this.allWishListSub = this._WhishlistService.getUserWishlist().subscribe({
       next: (res) => {
-        console.log(res);
         this.wishlistProducts.set(res.data);
         this._WhishlistService.numWishIems.set(res.count);
-        console.log(this.wishlistProducts());
       }
     });
   }
@@ -107,8 +106,6 @@ export class ProudectComponent implements OnInit, OnDestroy {
 
   whishlist(event: MouseEvent, id: string): void {
     const heart = event.target as HTMLElement;
-    console.log(heart);
-
     if (heart) {
       if (heart.classList.contains('text-danger')) {
         this.renderer.removeClass(heart, 'text-danger');
@@ -124,13 +121,14 @@ export class ProudectComponent implements OnInit, OnDestroy {
         this._WhishlistService.addProdcutWishlist(id).subscribe({
           next: (res) => {
             this._WhishlistService.numWishIems.set(res.data.length);
-            const message = localStorage.getItem("lang") === "en" ? res.message : "تم اضافة المنتج من المفضلة";
+            const message = localStorage.getItem("lang") === "en" ? res.message : "تم اضافة المنتج الي المفضلة";
             this._ToastrService.success(message, "Fresh Cart");
           }
         });
       }
     } else {
-      console.log('العنصر غير موجود');
     }
   }
+
+
 }

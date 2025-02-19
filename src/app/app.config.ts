@@ -4,13 +4,14 @@ import { routes } from './app.routes';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { provideToastr } from 'ngx-toastr';
+import { provideToastr, ToastrModule } from 'ngx-toastr';
 import { headerInterceptor } from './core/interceptors/header.interceptor';
 import { errorsInterceptor } from './core/interceptors/errors.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,14 +25,14 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch(), withInterceptors([headerInterceptor, errorsInterceptor, loadingInterceptor])),
     importProvidersFrom(BrowserAnimationsModule),
     provideToastr(),
-    importProvidersFrom(NgxSpinnerModule, TranslateModule.forRoot({
+    importProvidersFrom(NgxSpinnerModule,ToastrModule, TranslateModule.forRoot({
       defaultLanguage:"ar",
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })),
+    })), provideAnimationsAsync(),
 
 
 

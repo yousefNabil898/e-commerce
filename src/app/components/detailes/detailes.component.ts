@@ -10,11 +10,12 @@ import { CurrencyPipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DetailesProduct } from '../../core/interfaces/detailes-product';
 import { WhishlistService } from '../../core/services/whishlist.service';
+import { RecomndedProductsComponent } from "../recomnded-products/recomnded-products.component";
 
 @Component({
   selector: 'app-detailes',
   standalone: true,
-  imports: [CarouselModule, CurrencyPipe, TranslateModule],
+  imports: [CarouselModule, CurrencyPipe, TranslateModule, RecomndedProductsComponent],
   templateUrl: './detailes.component.html',
   styleUrls: ['./detailes.component.scss']
 })
@@ -29,6 +30,8 @@ export class DetailesComponent implements OnInit, OnDestroy {
   detalisProductSub !: Subscription
   detailesProduct: DetailesProduct = {} as DetailesProduct;
   selectedImage: string = '';
+  skeletonArray = Array(5).fill(0);
+
   customOptionsDetailes: OwlOptions = {
     loop: true,
     rtl: true,
@@ -48,7 +51,6 @@ export class DetailesComponent implements OnInit, OnDestroy {
     this._CartService.getUserCart().subscribe({
       next: (res) => {
           this._CartService.numCartItems.set(res.numOfCartItems)
-          console.log(res);
 
       }
   })
@@ -58,10 +60,8 @@ export class DetailesComponent implements OnInit, OnDestroy {
         if (idProduct) {
           this.detalisProductSub = this._ProductsService.getSpacifProduct(idProduct).subscribe({
             next: (res) => {
-              console.log("res", res);
 
               this.detailesProduct = res.data;
-              console.log("detailesProduct", this.detailesProduct);
 
               this.selectedImage = res.data.images
 
@@ -73,10 +73,7 @@ export class DetailesComponent implements OnInit, OnDestroy {
     });
     this._WhishlistService.getUserWishlist().subscribe({
       next: (res) => {
-        console.log(res);
         this._WhishlistService.numWishIems.set(res.data.length)
-
-
       }
     });
 

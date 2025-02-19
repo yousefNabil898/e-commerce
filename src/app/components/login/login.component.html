@@ -34,11 +34,27 @@
                 </div>
                 }
             </div>
-            <div class="d-flex justify-content-end align-items-center mt-3">
-                <a routerLink="/forget"  class="me-3 link-primary fw-bolder "> Forgetpassword</a>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class=" w-50">
+                    <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        click to show Email
+                    </button>
 
-                <button [disabled]="loginForm.invalid" type="submit" class="btn-main">login</button>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body w-75">
+                           <p class="fw-bolder">Email : <span class="fw-medium">yousefnabil88&#64;gmail.com</span></p>
+                           <p class="fw-bold">Password : <span >102030</span></p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class=" w-25">
+                    <a routerLink="/forget" class="me-3 link-primary fw-bolder "> Forgetpassword</a>
+
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn-main">login</button>
+                </div>
+               
             </div>
             @if (errMes) {
             <div class="alert alert-danger mt-2 p-0 ">
@@ -51,6 +67,8 @@
             </div>
             }
         </form>
+        <div class="w-50 ">
 
+        </div>
     </div>
 </section>

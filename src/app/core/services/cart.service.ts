@@ -16,7 +16,7 @@ export class CartService {
     return this._HttpClient.post(`${enviroment.baseUrl}/api/v1/cart`,
       {
         "productId": id
-      },
+      }
 
     )
   }

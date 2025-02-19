@@ -11,7 +11,7 @@ import { SearchPipe } from '../../core/pipes/search.pipe';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselModule, RouterLink, CurrencyPipe, TranslateModule, ProudectComponent,SearchPipe],
+  imports: [CarouselModule, TranslateModule, ProudectComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

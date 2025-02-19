@@ -1,27 +1,80 @@
-# ECommrece
+FreshCart - E-Commerce Training Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Overview
 
-## Development server
+FreshCart is a training project built using Angular to enhance skills in frontend development and implement key e-commerce functionalities. The project includes user authentication, product management, shopping cart, wishlist, orders, and payment integration using Stripe.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Features
 
-## Code scaffolding
+User Authentication: Register, Login, Logout, Forgot Password
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Product Management: Display all products, product details with recommended items
 
-## Build
+Shopping Experience: Wishlist, Shopping Cart, Order Management
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Search & Filters: Search products by name, filter by category
 
-## Running unit tests
+Payment Integration: Secure payment gateway using Stripe
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+UI/UX Enhancements:
 
-## Running end-to-end tests
+Bootstrap for responsive design
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+ngx-owl-carousel for product sliders
 
-## Further help
+Toaster for notifications
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Angular Advanced Concepts:
+
+Interceptors for HTTP requests handling
+
+Auth Guard for route protection
+
+Pipes for data transformation
+
+Signals and RxJS operations for reactive programming
+
+
+
+Tech Stack
+
+Frontend: Angular, TypeScript
+
+UI Frameworks: Bootstrap, ngx-owl-carousel, toaster
+
+State Management & Observables: RxJS, Signals
+
+Security & Routing: Auth Guards, Interceptors
+
+Payment Gateway: Stripe
+
+
+
+
+Usage
+
+Create an account or log in.
+
+Browse available products.
+
+Add items to the cart or wishlist.
+
+Proceed to checkout and complete payment using Stripe.
+
+View order history.
+
+
+Contributions
+
+This project is a personal training initiative, but contributions and feedback are welcome. Feel free to fork and experiment!
+
+Contact
+
+For any inquiries or suggestions, reach out via GitHub Issues or email =>[yousefnabil88@gmail.com].
+
+
+
+---
+
+Note: This project is for learning purposes and not intended for production use.

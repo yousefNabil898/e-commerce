@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Iproduct } from '../interfaces/iproduct';
 
 @Pipe({
   name: 'search',
@@ -6,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(products: any[], term: string): any[] {
+  transform(products: Iproduct[], term: string): any[] {
 
     return products.filter((product)=>product.title.toLowerCase().includes(term.toLocaleLowerCase()));
   }
