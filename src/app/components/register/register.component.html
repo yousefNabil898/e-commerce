@@ -1,94 +1,109 @@
-<section class=" min-vh-100  d-flex justify-content-center align-items-center ">
-    <div class="w-75 shadow bg-main-light p-4">
-        <h1 class=" h3 text-main">Register Now :</h1>
+<section class="min-vh-100 d-flex justify-content-center align-items-center"
+    >
+    <div class="glass-card w-100 w-md-75 rounded-4 shadow-lg p-5">
+
+        <h2 class="fw-bold text-center  mb-4">Create Your Account 📝</h2>
+
         <form [formGroup]="registerForm" (ngSubmit)="registerSubmite()" class="mx-auto">
-            <div class="form-floating mt-2">
-                <input formControlName="name" type="text" id="name" class="form-control" placeholder="Name">
-                <label for="name">Name</label>
+
+            <div class="form-floating mb-3">
+                <input formControlName="name" type="text" id="name" class="form-control bg-transparent  border-dark-subtle"
+                    placeholder="Name">
+                <label for="name" class=""><i class="bi bi-person "></i>Name</label>
+
                 @if(registerForm.get("name")?.errors && registerForm.get("name")?.touched){
-                <div class="alert alert-danger p-2">
+                <div class="alert alert-dark mt-2 p-2 animate__animated animate__shakeX">
                     @if (registerForm.get("name")?.getError("required")) {
-                    <p class="m-0">Name is required</p>
+                    <small>Name is required</small>
                     }
                     @else if (registerForm.get("name")?.getError("minlength")) {
-                    <p class="m-0">Name Should be more than or equal 3 chars</p>
+                    <small>Name must be at least 3 characters</small>
                     }
                     @else if (registerForm.get("name")?.getError("maxlength")) {
-                    <p class="m-0">Name Should be less than or equal 20 chars</p>
+                    <small>Name must be less than 20 characters</small>
                     }
                 </div>
                 }
             </div>
 
-            <div class="form-floating mt-2">
-                <input formControlName="email" type="email" id="email" class="form-control" placeholder="Email">
-                <label for="email">Email</label>
+            <div class="form-floating mb-3">
+                <input formControlName="email" type="email" id="email" class="form-control bg-transparent  border-dark-subtle"
+                    placeholder="Email">
+                <label for="email" class=""><i class="bi bi-envelope "></i>Email</label>
+
                 @if(registerForm.get("email")?.errors && registerForm.get("email")?.touched){
-                <div class="alert alert-danger p-2">
+                <div class="alert alert-dark mt-2 p-2 animate__animated animate__shakeX">
                     @if (registerForm.get("email")?.getError("required")) {
-                    <p class="m-0 p-0">Email is required</p>
+                    <small>Email is required</small>
                     }
                     @else if (registerForm.get("email")?.getError("email")) {
-                    <p class="m-0">Enter Valid Email</p>
+                    <small>Enter a valid email</small>
                     }
                 </div>
                 }
             </div>
 
-            <div class="form-floating mt-2">
-                <input formControlName="phone" type="tel" id="phone" class="form-control" placeholder="Phone">
-                <label for="phone">Phone</label>
+            <div class="form-floating mb-3">
+                <input formControlName="phone" type="tel" id="phone" class="form-control bg-transparent  border-dark-subtle"
+                    placeholder="Phone">
+                <label for="phone" class=""><i class="bi bi-telephone "></i>Phone</label>
+
                 @if(registerForm.get("phone")?.errors && registerForm.get("phone")?.touched){
-                <div class="alert alert-danger p-2">
+                <div class="alert alert-dark mt-2 p-2 animate__animated animate__shakeX">
                     @if (registerForm.get("phone")?.getError("required")) {
-                    <p class="m-0 p-0">Phone is required</p>
+                    <small>Phone is required</small>
                     }
                     @else if (registerForm.get("phone")?.getError("pattern")) {
-                    <p class="m-0">Accept only Egyptian phone numbers</p>
+                    <small>Only valid Egyptian numbers</small>
                     }
                 </div>
                 }
             </div>
 
-            <div class="form-floating mt-2">
-                <input formControlName="password" type="password" id="password" class="form-control"
-                    placeholder="Password">
-                <label for="password">Password</label>
+            <div class="form-floating mb-3">
+                <input formControlName="password" type="password" id="password"
+                    class="form-control bg-transparent  border-dark-subtle" placeholder="Password">
+                <label for="password" class=""><i class="bi bi-lock "></i>Password</label>
+
                 @if(registerForm.get("password")?.errors && registerForm.get("password")?.touched){
-                <div class="alert alert-danger p-2">
+                <div class="alert alert-dark mt-2 p-2 animate__animated animate__shakeX">
                     @if (registerForm.get("password")?.getError("required")) {
-                    <p class="m-0 p-0">Password is required</p>
+                    <small>Password is required</small>
                     }
                     @else if (registerForm.get("password")?.getError("pattern")) {
-                    <p class="m-0">Must be at least 6 chars</p>
+                    <small>Minimum 6 characters required</small>
                     }
                 </div>
                 }
             </div>
 
-            <div class="form-floating mt-2">
-                <input formControlName="rePassword" type="password" id="rePassword" class="form-control"
-                    placeholder="Repassword">
-                <label for="rePassword">Repassword</label>
+            <div class="form-floating mb-4">
+                <input formControlName="rePassword" type="password" id="rePassword"
+                    class="form-control bg-transparent  border-dark-subtle" placeholder="Re-enter Password">
+                <label for="rePassword" class=""><i class="bi bi-lock-fill "></i>Re-Password</label>
+
                 @if(registerForm.getError("mismatch") && registerForm.get("rePassword")?.touched){
-                <div class="alert alert-danger p-2">
-                    <p class="m-0 p-0">Password confirmation is incorrect</p>
+                <div class="alert alert-dark mt-2 p-2 animate__animated animate__shakeX">
+                    <small>Password confirmation does not match</small>
                 </div>
                 }
             </div>
+
             <button [disabled]="registerForm.invalid" type="submit"
-                class="btn-main mt-3 ms-auto d-block">Register</button>
+                class="btn btn-light w-100 py-2 rounded-pill shadow">Register</button>
+
             @if (errMes) {
-            <div class="alert alert-danger mt-2 p-0 ">
-                <p class="p-2 m-0">{{errMes}}</p>
+            <div class="alert alert-dark text-center mt-3 animate__animated animate__fadeIn">
+                <i class="bi bi-exclamation-circle-fill "></i>{{errMes}}
             </div>
             }
-            @if (succMes) {
-                <div class="alert alert-success mt-2 p-0">
-                    <p class="p-2 m-0">succes</p>
-                </div>
-                }
-        </form>
 
+            @if (succMes) {
+            <div class="alert alert-success text-center mt-3 animate__animated animate__fadeIn">
+                <i class="bi bi-check-circle-fill "></i>Registration Successful!
+            </div>
+            }
+
+        </form>
     </div>
 </section>
